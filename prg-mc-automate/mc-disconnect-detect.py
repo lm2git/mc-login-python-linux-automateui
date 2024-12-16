@@ -41,7 +41,7 @@ def monitor_log_file():
 
                     # Filtra le righe per il pattern richiesto
                     for line in new_lines:
-                        if "Client disconnected with reason: Proxy shutting down." in line:
+                        if "Per favore, esegui l'autenticazione con il comando: /login" in line:
                             disconnection_found = True
                             log_debug_message(f"Disconnessione rilevata---------")
 
