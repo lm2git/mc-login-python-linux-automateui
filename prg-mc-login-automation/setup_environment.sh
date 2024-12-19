@@ -11,8 +11,8 @@ sudo apt install -y python3 python3-pip
 # Installa wmctrl per la gestione delle finestre
 sudo apt install -y wmctrl
 
-# Installa pyautogui tramite pip
-pip3 install pyautogui
+# Installa tramite pip
+pip3 install pygetwindow pyautogui python-xlib
 
 # Conferma l'installazione
 python3 --version
@@ -20,3 +20,5 @@ pip3 --version
 wmctrl -h
 
 echo "Tutti i prerequisiti sono stati installati con successo!"
+
+
