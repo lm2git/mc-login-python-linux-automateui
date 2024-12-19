@@ -2,7 +2,7 @@
 
 # Script per configurare l'ambiente per mc-login.py
 
-# Aggiorna i pacchetti
+# Aggiorna i pacchetti OS 
 sudo apt update && sudo apt upgrade -y
 
 # Installa Python 3 e pip

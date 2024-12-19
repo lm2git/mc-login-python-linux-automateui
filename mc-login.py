@@ -3,7 +3,7 @@ import time
 from datetime import datetime
 import pyautogui
 
-# Path al file di log di Minecraft
+# Path al file di log di Minecraft-
 user_home = os.path.expanduser("~")
 log_file_path = os.path.join(user_home, ".minecraft", "logs", "latest.log")
 

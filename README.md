@@ -9,12 +9,13 @@ Quando il server richiede l'autenticazione con il comando `/login`, lo script do
 
 ## Requisiti
 
-- **Sistema operativo**: Linux Ubuntu (richiede il comando `wmctrl` per la gestione delle finestre)
+- **Sistema operativo**: Linux Ubuntu con interfaccia grafica(richiede il comando `wmctrl` per la gestione delle finestre)
 - **Python**: Versione 3.7 o successiva
 - **Dipendenze aggiuntive**:
-  - `pyautogui` per il controllo del mouse e della tastiera
+  - fare riferimento allo script apposito `setup_environment.sh`
 
-Per installare le dipendenze creato uno script apposito da lanciare solo la prima volta, esegui:
+Per installare le dipendenze creato uno script apposito da lanciare solo la prima volta (nell'ambiente di test già eseguito)
+Eseguire:
 
 ```bash
 chmod +x setup_environment.sh
@@ -26,7 +27,7 @@ chmod +x setup_environment.sh
 ## Installazione
 
 1. Clona o scarica questo repository.
-2. Assicurarsi di avviare Minecraft e  lasciare che la finestra di minecraft sia in primo piano (non in pausa!) sulla schermata di login 
+2. Assicurarsi di avviare Minecraft e lasciare che la finestra di minecraft sia in primo piano (non in pausa) sulla schermata di login 
 
 ---
 
@@ -48,7 +49,7 @@ Esegui lo script dalla riga di comando e lasciare il terminale attivo:
 python3 mc-login.py
 ```
 
-Lasciare la finestra di minecraft in primo piano (non in pausa)
+Lanciare e lasciare la finestra di minecraft in primo piano (non in pausa)
 
 Lo script:
 
