@@ -2,6 +2,8 @@ import os
 import time
 from datetime import datetime
 import pyautogui
+import cv2
+import numpy as np
 
 # Path al file di log di Minecraft-
 user_home = os.path.expanduser("~")
@@ -130,13 +132,33 @@ def perform_additional_actions():
             pyautogui.press("5")  # Seleziona lo slot 5
             time.sleep(2)
             pyautogui.click(button="right")  # Click destro per interagire
-            time.sleep(2)
+            time.sleep(3)
             
-            # Muovi il cursore alle coordinate specificate e clicca
-            pyautogui.moveTo(960, 572)  # Posizione specifica
-            time.sleep(1)
-            pyautogui.click(button="left")  # Click sinistro
-            time.sleep(1)
+            # Scatta uno screenshot della finestra attiva
+            screenshot = pyautogui.screenshot()
+            screenshot = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
+
+            # Carica l'immagine del blocco ritagliato
+            template = cv2.imread('target_element01.png')  # Sostituisci con il nome del file ritagliato
+
+            # Trova la posizione del blocco
+            result = cv2.matchTemplate(screenshot, template, cv2.TM_CCOEFF_NORMED)
+            min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
+
+            # Se il matching è sopra una certa soglia, clicca sul punto
+            threshold = 0.8  # Cambia la soglia se necessario
+            if max_val >= threshold:
+                print(f"Elemento trovato con confidenza {max_val}")
+                # Coordinate del centro del blocco
+                h, w = template.shape[:2]
+                center_x = max_loc[0] + w // 2
+                center_y = max_loc[1] + h // 2
+
+                # Clicca sull'elemento
+                pyautogui.click(center_x, center_y)
+            else:
+                print("Elemento target_element01 non trovato. Prova ad aggiustare la soglia o ricontrollare l'immagine.")
+
             
             log_success("Movimento e click completati. Azioni eseguite con successo.")
             success = True
@@ -204,4 +226,7 @@ def monitor_log_file():
         log_error(f"Errore durante il monitoraggio del log: {e}")
 
 if __name__ == "__main__":
+    print("script in esecuzione per terminare CTRL+C oppure chiudere il terminale.")
+    print("---")
+    print("logs registrati nel file -> disconnections.log")
     monitor_log_file()

@@ -13,6 +13,7 @@ sudo apt install -y wmctrl
 
 # Installa tramite pip
 pip3 install pygetwindow pyautogui python-xlib
+pip3 install opencv-python pillow numpy
 
 # Conferma l'installazione
 python3 --version
