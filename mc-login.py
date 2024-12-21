@@ -226,7 +226,7 @@ def monitor_log_file():
         log_error(f"Errore durante il monitoraggio del log: {e}")
 
 if __name__ == "__main__":
-    print("script in esecuzione per terminare CTRL+C oppure chiudere il terminale.")
+    print("Script in esecuzione! per terminare CTRL+C oppure chiudere il terminale.")
     print("---")
-    print("logs registrati nel file -> disconnections.log")
+    print("logs vengono registrati nel file -> disconnections.log")
     monitor_log_file()
